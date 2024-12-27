@@ -10,6 +10,8 @@ import AdminWatches from "./admin/AdminWatches"
 import AdminIpads from "./admin/AdminIpads"
 import AdminAirpods from "./admin/AdminAirpods"
 import AdminHomeapp from "./admin/AdminHomeapp"
+import InsertLaptops from "./admin/InsertLaptops"
+import UpdateLaptops from "./admin/UpdateLaptops"
 const Master = () => {
   return (
     <>
@@ -18,6 +20,8 @@ const Master = () => {
             <Route path="/" element={<Login></Login>}></Route>
             <Route path="/userdashboard" element={<UserDashboard></UserDashboard>}></Route>
             <Route path="/admindashboard" element={<AdminDashboard></AdminDashboard>}>
+
+                    <Route index element={<AdminLaptops></AdminLaptops>}></Route>
             
                    <Route path="admindashboard/adminlaptops" element={<AdminLaptops></AdminLaptops>}></Route>
                    <Route path="admindashboard/adminmobiles" element={<AdminMobiles></AdminMobiles>}></Route>
@@ -28,6 +32,9 @@ const Master = () => {
             
             </Route>
             <Route path="/error" element={<Error></Error>}></Route>
+
+            <Route path="/insertlaptops" element={<InsertLaptops></InsertLaptops>}></Route>
+            <Route path="/updatelaptops/:pid/:pname/:pcost/:pquantity/:pdescription/:pdiscount" element={<UpdateLaptops></UpdateLaptops>}></Route>
           </Routes>
     </BrowserRouter>
     </>

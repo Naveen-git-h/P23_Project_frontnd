@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import axios from "axios"
 const AdminLaptops = () => {
 const [laptops,setLaptops]=useState([])
+const navigate=useNavigate()
   const fetchLaptops=async()=>{
     const res=await axios.get("http://localhost:9090/admin/laptops",{
       headers:{
@@ -26,23 +28,27 @@ const [laptops,setLaptops]=useState([])
               "Authorization":`Bearer ${localStorage.getItem(`token`)}`
           }
         });
-        console.log(res);
     } catch (error) {
         console.error("Error deleting laptop:", error);
     }
 };
 
-// const add = ()=>{
-//     navigate("/add")
-// }
+
+const edit=(id,name,cost,quantity,description,discount)=>{
+     navigate(`/updatelaptops/${id}/${name}/${cost}/${quantity}/${description}/${discount}`)
+}
+
+const add = ()=>{
+    navigate("/insertlaptops")
+}
 
   return (
     <>
-            {/* <button onClick={add} style={{marginLeft:350}}>Add Employee</button> */}
+            
             <table border={1}
                    align="center"
-                   cellSpacing={10}
-                   cellPadding={10}>
+                   cellSpacing={5}
+                   cellPadding={5}>
                 <thead>
                     <tr>
                         <th>id</th>
@@ -66,7 +72,7 @@ const [laptops,setLaptops]=useState([])
                                 
                                 <td>
                                     <i className="fa fa-edit" 
-                                       onClick={()=>edit(element.e_id, element.e_name, element.e_sal, element.e_image)}>
+                                       onClick={()=>edit(element.id, element.name, element.cost,element.quantity,element.description,element.discount)}>
                                     </i>
                                 </td>
                                 <td>
@@ -77,7 +83,11 @@ const [laptops,setLaptops]=useState([])
                     }
                 </tbody>
 
-                <tfoot></tfoot>
+                <tfoot>
+                    <tr>
+                        <td colSpan={6}> <button onClick={add} style={{marginLeft:110}}>Add Employee</button></td>
+                    </tr>
+                </tfoot>
             </table>
         </>
 

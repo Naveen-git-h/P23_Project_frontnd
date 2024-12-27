@@ -1,0 +1,25 @@
+.upload_main{
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 40px;
+    border-radius: 10px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.upload_but{
+    background-color: #2471c3;
+    width: 150px;
+    height: 30px;
+    margin-left: 100px;
+    border-radius: 10px;
+    border: none;
+    font-weight: 600;
+}
+.upload_box{
+    display: flex;
+    justify-content: space-evenly;
+    font-weight: 600;
+}
