@@ -5,7 +5,7 @@ import "./UpdateLaptops.css"
 
 const UpdateLaptopForm = () => {
 
-    const {pid,pname,pcost,pqty,pquantity,pdescription,pdiscount} =useParams()
+    const {pid,pname,pcost,pquantity,pdescription,pdiscount} =useParams()
 
     const [id, setId] = useState(parseInt(pid));
     const [name, setName] = useState(pname);

@@ -12,13 +12,16 @@ import AdminAirpods from "./admin/AdminAirpods"
 import AdminHomeapp from "./admin/AdminHomeapp"
 import InsertLaptops from "./admin/InsertLaptops"
 import UpdateLaptops from "./admin/UpdateLaptops"
+import Register from "./global/Register"
 const Master = () => {
   return (
     <>
     <BrowserRouter>
           <Routes>
             <Route path="/" element={<Login></Login>}></Route>
+            <Route path="/sign" element={<Login></Login>}></Route>
             <Route path="/userdashboard" element={<UserDashboard></UserDashboard>}></Route>
+            <Route path="/register" element={<Register></Register>}></Route>
             <Route path="/admindashboard" element={<AdminDashboard></AdminDashboard>}>
 
                     <Route index element={<AdminLaptops></AdminLaptops>}></Route>
